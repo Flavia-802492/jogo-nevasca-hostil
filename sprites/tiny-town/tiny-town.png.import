@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqqg2vf5ku0f3"
-path="res://.godot/imported/palette.png-9bd71905649c010835ea02a944f730c8.ctex"
+uid="uid://ckeoiqy5k8y3e"
+path="res://.godot/imported/tiny-town.png-4ae861840c894f131a3078bc232c55d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/frostpine_hollow/palette.png"
-dest_files=["res://.godot/imported/palette.png-9bd71905649c010835ea02a944f730c8.ctex"]
+source_file="res://sprites/tiny-town/tiny-town.png"
+dest_files=["res://.godot/imported/tiny-town.png-4ae861840c894f131a3078bc232c55d9.ctex"]
 
 [params]
 

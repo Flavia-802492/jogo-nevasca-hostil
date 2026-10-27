@@ -284,11 +284,12 @@ shape = SubResource("RectangleShape2D_fmxor")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=542646216]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_123ki")
-animation = &"esquerda-andando"
+animation = &"baixo-andando"
+frame_progress = 0.57713604
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1686975918]
 zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
 limit_right = 1200
-limit_bottom = 600
+limit_bottom = 608
