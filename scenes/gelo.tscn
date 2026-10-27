@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://q621ncnysbil"]
+
+[ext_resource type="PackedScene" uid="uid://dgs05k32bf0kd" path="res://entities/jogador.tscn" id="1_g4lms"]
+
+[node name="gelo" type="Node2D" unique_id=1174946300]
+
+[node name="terreno" type="TileMapLayer" parent="." unique_id=1952206700]
+
+[node name="decoracao" type="TileMapLayer" parent="." unique_id=1108606055]
+
+[node name="jogador" parent="." unique_id=280990657 instance=ExtResource("1_g4lms")]
