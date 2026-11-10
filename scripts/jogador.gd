@@ -12,16 +12,27 @@ enum PlayerState {
 }
 
 @export var velocidade: float = 70.0
+@export var vida: int = 3
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var hurtbox: Area2D = $hurtbox
 
 var status: PlayerState
 var direcao: Vector2 = Vector2.ZERO
+var invencivel := false
 
 
 func _ready() -> void:
 	go_to_baixo_parado_state()
+	hurtbox.body_entered.connect(_on_hurtbox_body_entered)
 
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if invencivel:
+		return
+
+	if body.is_in_group("inimigo"):
+		levar_dano()
 
 func _physics_process(_delta: float) -> void:
 	match status:
@@ -51,6 +62,19 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 
+func levar_dano() -> void:
+	vida -= 1
+	if vida <= 0:
+		get_tree().current_scene.perder()
+		return
+
+	invencivel = true
+	modulate.a = 0.4
+
+	await get_tree().create_timer(1.0).timeout
+
+	modulate.a = 1.0
+	invencivel = false
 
 func go_to_cima_parado_state() -> void:
 	status = PlayerState.cima_parado

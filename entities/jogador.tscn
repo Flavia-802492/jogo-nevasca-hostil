@@ -151,7 +151,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"baixo-andando",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -168,7 +168,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"baixo-parado",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -185,7 +185,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"cima-andando",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -202,7 +202,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"cima-parado",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -219,7 +219,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"direita-andando",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -236,7 +236,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"direita-parado",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -253,7 +253,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"esquerda-andando",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -270,10 +270,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"esquerda-parado",
-"speed": 4.0
+"speed": 6.0
 }]
 
-[node name="jogador" type="CharacterBody2D" unique_id=280990657]
+[sub_resource type="CircleShape2D" id="CircleShape2D_123ki"]
+radius = 7.0
+
+[node name="jogador" type="CharacterBody2D" unique_id=280990657 groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_6dywx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1797995280]
@@ -284,8 +288,7 @@ shape = SubResource("RectangleShape2D_fmxor")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=542646216]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_123ki")
-animation = &"baixo-andando"
-frame_progress = 0.57713604
+animation = &"esquerda-parado"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1686975918]
 zoom = Vector2(3, 3)
@@ -293,3 +296,12 @@ limit_left = 0
 limit_top = 0
 limit_right = 1200
 limit_bottom = 608
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=434169414]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=2076662884]
+shape = SubResource("CircleShape2D_123ki")
+
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
