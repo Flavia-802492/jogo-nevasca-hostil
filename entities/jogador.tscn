@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://p6wjjkadc8r6" path="res://scripts/jogador.gd" id="1_6dywx"]
 [ext_resource type="Texture2D" uid="uid://ctj7syg7028l6" path="res://sprites/FREE DEMO + PENGUIN/Tiles and characters/penguin.png" id="2_m0gj8"]
+[ext_resource type="Texture2D" uid="uid://ge7uwyid3hv4" path="res://sprites/manus/snowflake_attack_spritesheet.png" id="3_mi7s2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmxor"]
 size = Vector2(8, 4)
@@ -276,6 +277,73 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_123ki"]
 radius = 7.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3on5"]
+radius = 45.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x7uu"]
+atlas = ExtResource("3_mi7s2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ven1f"]
+atlas = ExtResource("3_mi7s2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f642i"]
+atlas = ExtResource("3_mi7s2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txcog"]
+atlas = ExtResource("3_mi7s2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkxul"]
+atlas = ExtResource("3_mi7s2")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1also"]
+atlas = ExtResource("3_mi7s2")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjpmu"]
+atlas = ExtResource("3_mi7s2")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh73m"]
+atlas = ExtResource("3_mi7s2")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3on5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x7uu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ven1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f642i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txcog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkxul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1also")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjpmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh73m")
+}],
+"loop": 0,
+"name": &"onda_gelo",
+"speed": 5.0
+}]
+
 [node name="jogador" type="CharacterBody2D" unique_id=280990657 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_6dywx")
@@ -303,5 +371,19 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=2076662884]
 shape = SubResource("CircleShape2D_123ki")
+
+[node name="Ataque" type="Area2D" parent="." unique_id=662785057]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ataque" unique_id=998262639]
+shape = SubResource("CircleShape2D_s3on5")
+
+[node name="EfeitoGelo" type="AnimatedSprite2D" parent="Ataque" unique_id=841745821]
+position = Vector2(-51, -44)
+scale = Vector2(6.3750005, 5.875)
+sprite_frames = SubResource("SpriteFrames_s3on5")
+animation = &"onda_gelo"
+centered = false
 
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

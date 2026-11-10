@@ -565,7 +565,7 @@ one_shot = true
 autostart = true
 
 [node name="Horda" type="Timer" parent="." unique_id=758263482]
-wait_time = 2.0
+wait_time = 4.0
 autostart = true
 
 [connection signal="timeout" from="Horda" to="." method="_on_horda_timeout"]

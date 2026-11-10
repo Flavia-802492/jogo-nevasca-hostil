@@ -64,3 +64,20 @@
 **Dificuldade:** inicialmente, os inimigos estavam nascendo na origem da cena, em vez de aparecerem em pontos específicos do mapa.
 
 **Como resolvi:** seguindo a estrutura proposta na Aula 09, criando o nó `Nascedouros` com quatro `Marker2D` posicionados em diferentes regiões do mapa e utilizando suas posições globais para determinar o local de nascimento dos inimigos.
+
+
+## feat: implementa sistema de combate e balanceamento da horda
+
+- Implementa o ataque do jogador utilizando a área `Ataque`.
+- Adiciona o efeito visual da onda de gelo, exibido durante o ataque.
+- Permite atingir inimigos durante a animação do ataque.
+- Implementa o sistema de vida dos inimigos, que são derrotados ao receber um golpe.
+- Adiciona o registro da quantidade de inimigos derrotados.
+- Ajusta o balanceamento do combate: velocidade dos inimigos em 25, raio de ataque em 45 e intervalo inicial da horda em 4 segundos.
+- Ajusta o crescimento da dificuldade da horda, reduzindo o intervalo entre nascimentos em 3%, até o limite mínimo de 1,5 segundo.
+
+**Dificuldade:** inicialmente, a quantidade e a velocidade dos inimigos tornavam a sobrevivência muito difícil.
+
+**Como resolvi:** realizei testes e ajustei a velocidade dos inimigos, o alcance do ataque e o intervalo de nascimento da horda até encontrar um equilíbrio entre desafio e possibilidade de sobrevivência.
+
+**Observação:** a animação da onda de gelo foi criada com auxílio da ferramenta Manus AI, utilizando imagens PNG como quadros da animação.

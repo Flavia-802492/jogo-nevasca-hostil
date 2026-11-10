@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+@onready var ataque: Area2D = $Ataque
+@onready var efeito_gelo: AnimatedSprite2D = $Ataque/EfeitoGelo
+
+var pode_atacar := true
+
 enum PlayerState {
 	cima_andando,
 	cima_parado,
@@ -25,6 +30,7 @@ var invencivel := false
 func _ready() -> void:
 	go_to_baixo_parado_state()
 	hurtbox.body_entered.connect(_on_hurtbox_body_entered)
+	efeito_gelo.visible = false
 
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
@@ -61,19 +67,43 @@ func _physics_process(_delta: float) -> void:
 			direita_andando_state()
 
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("attack") and pode_atacar:
+		atacar()
+
+func atacar() -> void:
+	pode_atacar = false
+
+	efeito_gelo.visible = true
+	efeito_gelo.play("onda_gelo")
+
+	while efeito_gelo.is_playing():
+		for inimigo in ataque.get_overlapping_bodies():
+			if inimigo.is_in_group("inimigo"):
+				if inimigo.has_method("levar_golpe"):
+					inimigo.levar_golpe()
+
+		await get_tree().physics_frame
+
+	efeito_gelo.visible = false
+
+	await get_tree().create_timer(0.4).timeout
+	pode_atacar = true
+
 
 func levar_dano() -> void:
 	vida -= 1
+	
 	if vida <= 0:
 		get_tree().current_scene.perder()
 		return
 
 	invencivel = true
-	modulate.a = 0.4
+	anim.modulate = Color(1.0, 0.35, 0.35, 0.4)
 
 	await get_tree().create_timer(1.0).timeout
 
-	modulate.a = 1.0
+	anim.modulate = Color.WHITE
 	invencivel = false
 
 func go_to_cima_parado_state() -> void:

@@ -9,6 +9,8 @@ extends Node2D
 @onready var texto_vida: Label = $hud/vida
 @onready var texto_tempo: Label = $hud/tempo
 
+var abates: int = 0
+
 func _process(_delta: float) -> void:
 
 	texto_vida.text = "Vida: %s" % str(jogador.get("vida"))
@@ -31,4 +33,9 @@ func _on_horda_timeout() -> void:
 
 	add_child(inimigo)
 
-	horda.wait_time = max(0.5, horda.wait_time * 0.95)
+	horda.wait_time = max(1.5, horda.wait_time * 0.97)
+
+
+func inimigo_morreu(_inimigo: Node2D) -> void:
+	abates += 1
+	print("Inimigos derrotados: ", abates)

@@ -1,12 +1,11 @@
-
 extends CharacterBody2D
 
-@export var velocidade: float = 35.0
+@export var velocidade: float = 25.0
+@export var vida: int = 1
 
 @onready var animacao: AnimatedSprite2D = $AnimatedSprite2D
 
 var jogador: Node2D
-
 
 func _ready() -> void:
 	jogador = get_tree().get_first_node_in_group("player") as Node2D
@@ -40,3 +39,11 @@ func atualizar_animacao(direcao: Vector2) -> void:
 			animacao.play("baixo-andando")
 		else:
 			animacao.play("cima-andando")
+
+
+func levar_golpe() -> void:
+	vida -= 1
+
+	if vida <= 0:
+		get_tree().current_scene.inimigo_morreu(self)
+		queue_free()
