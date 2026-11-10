@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bs6n27h440i5s"]
+
+[ext_resource type="Script" uid="uid://csi4dra8s4qbq" path="res://scripts/inimigo.gd" id="1_k3jr6"]
+[ext_resource type="Texture2D" uid="uid://bvqn64f2mv78x" path="res://sprites/chatgpt/boneco_neve_16x16_spritesheet.png" id="2_dc5j5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_123ki"]
+size = Vector2(8, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3jr6"]
+atlas = ExtResource("2_dc5j5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xex7k"]
+atlas = ExtResource("2_dc5j5")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8vxb"]
+atlas = ExtResource("2_dc5j5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsp1r"]
+atlas = ExtResource("2_dc5j5")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg2rv"]
+atlas = ExtResource("2_dc5j5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b30fx"]
+atlas = ExtResource("2_dc5j5")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgb3y"]
+atlas = ExtResource("2_dc5j5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ak3ui"]
+atlas = ExtResource("2_dc5j5")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3on5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3jr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xex7k")
+}],
+"loop": 1,
+"name": &"baixo-andando",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8vxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsp1r")
+}],
+"loop": 1,
+"name": &"cima-andando",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg2rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b30fx")
+}],
+"loop": 1,
+"name": &"direita-andando",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgb3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ak3ui")
+}],
+"loop": 1,
+"name": &"esquerda-andando",
+"speed": 4.0
+}]
+
+[node name="inimigo" type="CharacterBody2D" unique_id=1764553179 groups=["inimigo", "player"]]
+collision_layer = 4
+script = ExtResource("1_k3jr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=296450614]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_123ki")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1949626413]
+sprite_frames = SubResource("SpriteFrames_s3on5")
+animation = &"esquerda-andando"
+frame_progress = 0.10971177

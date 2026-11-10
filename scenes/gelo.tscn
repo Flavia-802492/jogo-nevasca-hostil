@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cpnd6ea4trvaf" path="res://sprites/kenney_tiny-ski/Tilemap/tilemap_packed.png" id="9_0esfn"]
 [ext_resource type="Script" uid="uid://cgc3ktiyrcjj1" path="res://scripts/vida.gd" id="11_qpuq8"]
 [ext_resource type="Script" uid="uid://blom3gxay5rud" path="res://scripts/tempo.gd" id="12_kr17i"]
+[ext_resource type="PackedScene" uid="uid://bs6n27h440i5s" path="res://entities/inimigo.tscn" id="14_ovfc6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwciy"]
 texture = ExtResource("3_e87rr")
@@ -547,3 +548,6 @@ script = ExtResource("12_kr17i")
 wait_time = 180.0
 one_shot = true
 autostart = true
+
+[node name="inimigo" parent="." unique_id=1764553179 instance=ExtResource("14_ovfc6")]
+position = Vector2(539, 211)
