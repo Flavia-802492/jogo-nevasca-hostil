@@ -1,7 +1,10 @@
 extends Node2D
 
+@export var cena_inimigo: PackedScene
+
 @onready var relogio: Timer = $relogio
 @onready var jogador = $jogador
+@onready var horda: Timer = $Horda
 
 @onready var texto_vida: Label = $hud/vida
 @onready var texto_tempo: Label = $hud/tempo
@@ -19,3 +22,13 @@ func _process(_delta: float) -> void:
 		minutos,
 		restante
 	]
+
+
+func _on_horda_timeout() -> void:
+	var inimigo = cena_inimigo.instantiate()
+
+	inimigo.global_position = $Nascedouros.get_children().pick_random().global_position
+
+	add_child(inimigo)
+
+	horda.wait_time = max(0.5, horda.wait_time * 0.95)

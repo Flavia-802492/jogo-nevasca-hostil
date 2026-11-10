@@ -49,4 +49,18 @@
 
 **Como resolvi:** ajustando as Collision Layers e Collision Masks do jogador, do inimigo e da hurtbox, separando a colisão física da detecção de dano.
 
-**Observação:** Esqueci de adicionar as dificuladades e como eu as resolvi, então estou adicionando agora. E o sprite do boneco de neve eu pedi para o ChatGPT fazer já que eu não encontrei um boneco de neve nas quatro direções e por enquanto é só ele andando.
+**Observação:** esta atualização também registra as dificuldades e soluções que não foram documentadas no momento do commit anterior. O sprite do boneco de neve foi criado com auxílio do ChatGPT, pois não encontrei um asset que apresentasse animações nas quatro direções. Por enquanto, o inimigo possui apenas animações de caminhada.
+
+
+## feat: implementa sistema de horda de inimigos
+
+- Adiciona o nó `Nascedouros` à cena principal, contendo quatro pontos de nascimento dos inimigos: Esquerda, Direita, Cima e Baixo.
+- Implementa o Timer `Horda`, configurado inicialmente com intervalo de 2 segundos e início automático.
+- Implementa a criação automática de inimigos por meio da instanciação da cena `inimigo.tscn`.
+- Faz com que os inimigos apareçam aleatoriamente em um dos quatro pontos de nascimento.
+- Implementa o aumento gradual da dificuldade, reduzindo o intervalo entre os nascimentos em 5% a cada novo inimigo, até atingir o limite mínimo de 0,5 segundo.
+- Remove o inimigo colocado manualmente na cena principal, mantendo sua criação sob responsabilidade do sistema de horda.
+
+**Dificuldade:** inicialmente, os inimigos estavam nascendo na origem da cena, em vez de aparecerem em pontos específicos do mapa.
+
+**Como resolvi:** seguindo a estrutura proposta na Aula 09, criando o nó `Nascedouros` com quatro `Marker2D` posicionados em diferentes regiões do mapa e utilizando suas posições globais para determinar o local de nascimento dos inimigos.

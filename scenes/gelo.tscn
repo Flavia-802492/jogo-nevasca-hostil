@@ -506,6 +506,7 @@ sources/12 = SubResource("TileSetAtlasSource_uc3a5")
 
 [node name="gelo" type="Node2D" unique_id=1145624866]
 script = ExtResource("1_w8y82")
+cena_inimigo = ExtResource("14_ovfc6")
 metadata/_edit_vertical_guides_ = [1200.0, 1184.0, 16.0]
 metadata/_edit_horizontal_guides_ = [608.0, 16.0, 592.0]
 
@@ -519,6 +520,20 @@ tile_set = SubResource("TileSet_mi7s2")
 
 [node name="jogador" parent="." unique_id=280990657 instance=ExtResource("1_g4lms")]
 position = Vector2(607, 276)
+
+[node name="Nascedouros" type="Node2D" parent="." unique_id=132823341]
+
+[node name="Esquerda" type="Marker2D" parent="Nascedouros" unique_id=1704114097]
+position = Vector2(231, 380)
+
+[node name="Direita" type="Marker2D" parent="Nascedouros" unique_id=326551535]
+position = Vector2(1114, 242)
+
+[node name="Cima" type="Marker2D" parent="Nascedouros" unique_id=1432732801]
+position = Vector2(625, 62)
+
+[node name="Baixo" type="Marker2D" parent="Nascedouros" unique_id=1799861557]
+position = Vector2(692, 537)
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=845512231]
 
@@ -549,5 +564,8 @@ wait_time = 180.0
 one_shot = true
 autostart = true
 
-[node name="inimigo" parent="." unique_id=1764553179 instance=ExtResource("14_ovfc6")]
-position = Vector2(539, 211)
+[node name="Horda" type="Timer" parent="." unique_id=758263482]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Horda" to="." method="_on_horda_timeout"]
