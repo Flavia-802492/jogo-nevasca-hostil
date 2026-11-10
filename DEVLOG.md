@@ -101,3 +101,29 @@
 **Dificuldade:** organizar a decoração e garantir que os personagens tivessem espaço suficiente para se movimentar pelo cenário.
 
 **Como resolvi:** refiz a decoração, ajustei o espaçamento entre os elementos e adicionei colisões aos objetos sólidos.
+
+
+## feat: implementa telas de vitória e derrota e finaliza HUD
+
+### Contador de inimigos derrotados
+- Adiciona a Label `Abates` à HUD para exibir a quantidade de inimigos derrotados durante a partida.
+- Atualiza o contador sempre que um inimigo é derrotado, permitindo acompanhar a pontuação durante o jogo.
+
+### Telas de vitória e derrota
+- Cria as cenas `vitoria.tscn` e `derrota.tscn`, utilizadas para apresentar o resultado da partida.
+- Implementa a exibição de mensagens de vitória e derrota, acompanhadas da quantidade total de inimigos derrotados.
+- Adiciona ilustrações pixelizadas de fundo às duas telas, criadas com auxílio da ferramenta Manus AI.
+- Organiza os elementos visuais para manter os textos e botões sobre as ilustrações.
+- Personaliza os botões de cada tela, utilizando verde para a vitória e vermelho para a derrota.
+- Implementa a opção de reiniciar a partida por meio dos botões `Jogar novamente` e `Tentar novamente`.
+- Configura a transição entre a cena principal e as telas de resultado, encerrando os Timers da partida.
+
+### Ajustes e correções
+- Ajusta o raio da `CollisionShape2D` da hurtbox para 9, melhorando a detecção de dano dos inimigos que se aproximam por diferentes direções.
+- Corrige a conexão duplicada do sinal `body_entered` da hurtbox, mantendo a conexão realizada pelo script e removendo a conexão duplicada pelo editor.
+
+**Dificuldade:** inicialmente, alguns inimigos que se aproximavam por baixo do personagem não conseguiam causar dano. Além disso, foi identificado um erro causado pela conexão duplicada do sinal `body_entered`.
+
+**Como resolvi:** ajustei o raio da área de detecção da hurtbox para 9 e removi a conexão duplicada do sinal pelo editor, mantendo sua conexão por código no método `_ready()`.
+
+**Observação:** as ilustrações das telas de vitória e derrota foram desenvolvidas com auxílio da Manus AI, seguindo a identidade visual pixelizada do jogo. Foram realizados testes de vitória, derrota, reinicialização consecutiva das partidas, atualização da HUD e detecção de dano em todas as direções. Também foram observadas pequenas variações na espessura de algumas linhas dos caminhos do terreno, sem impacto perceptível na jogabilidade.

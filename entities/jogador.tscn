@@ -275,7 +275,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_123ki"]
-radius = 7.0
+radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3on5"]
 radius = 45.0
@@ -370,6 +370,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=2076662884]
+texture_filter = 1
 shape = SubResource("CircleShape2D_123ki")
 
 [node name="Ataque" type="Area2D" parent="." unique_id=662785057]
@@ -385,5 +386,3 @@ scale = Vector2(6.3750005, 5.875)
 sprite_frames = SubResource("SpriteFrames_s3on5")
 animation = &"onda_gelo"
 centered = false
-
-[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

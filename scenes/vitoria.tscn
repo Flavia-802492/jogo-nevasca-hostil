@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://d0h87cas1r8yd"]
+
+[ext_resource type="Script" uid="uid://bd22cfq70y2l8" path="res://scripts/fim.gd" id="1_5w2qk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5w2qk"]
+load_path = "res://.godot/imported/cena_vitoria_pixelizada_1200x608.png-2cdf66e869eee18fa3895705d53621d0.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w2qk"]
+bg_color = Color(0.13725491, 0.54509807, 0.27058825, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.08235294, 0.36078432, 0.1882353, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3oowa"]
+bg_color = Color(0.09019608, 0.41960785, 0.20784314, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0627451, 0.2901961, 0.14901961, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7a54b"]
+bg_color = Color(0.21176471, 0.6627451, 0.34117648, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.13725491, 0.54509807, 0.27058825, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Vitoria" type="Control" unique_id=1704117892]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5w2qk")
+metadata/_edit_vertical_guides_ = [432.0]
+metadata/_edit_horizontal_guides_ = [70.0]
+
+[node name="Ilustracao" type="TextureRect" parent="." unique_id=219316195]
+texture_filter = 1
+custom_minimum_size = Vector2(480, 243)
+custom_maximum_size = Vector2(1200, 608)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_5w2qk")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=938710865]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -168.0
+offset_top = 70.0
+offset_right = 163.0
+offset_bottom = 213.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1074658848]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Titulo" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2003544537]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 36
+text = "VOCÊ SOBREVIVEU!"
+horizontal_alignment = 1
+
+[node name="Pontuacao" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2006707265]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 28
+text = "Inimigos Derrotados: 0"
+horizontal_alignment = 1
+
+[node name="Reiniciar" type="Button" parent="CenterContainer/VBoxContainer" unique_id=822237691]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_5w2qk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3oowa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7a54b")
+text = "Jogar Novamente"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]

@@ -86,6 +86,7 @@ animations = [{
 }]
 
 [node name="inimigo" type="CharacterBody2D" unique_id=1764553179 groups=["inimigo", "player"]]
+texture_filter = 1
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_k3jr6")
