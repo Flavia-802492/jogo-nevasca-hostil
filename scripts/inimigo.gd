@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var vida: int = 1
 
 @onready var animacao: AnimatedSprite2D = $AnimatedSprite2D
+@onready var agente: NavigationAgent2D = $NavigationAgent2D
 
 var jogador: Node2D
 
@@ -16,7 +17,14 @@ func _physics_process(_delta: float) -> void:
 		velocity = Vector2.ZERO
 		return
 
-	var direcao = global_position.direction_to(jogador.global_position)
+	agente.target_position = jogador.global_position
+
+	if agente.is_navigation_finished():
+		velocity = Vector2.ZERO
+		return
+
+	var proxima_posicao = agente.get_next_path_position()
+	var direcao = global_position.direction_to(proxima_posicao)
 
 	velocity = direcao * velocidade
 

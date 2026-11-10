@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://c6m8pnmsgjo61" path="res://sprites/FREE DEMO + PENGUIN/Tiles and characters/frozen water.png" id="1_hcyti"]
 [ext_resource type="Texture2D" uid="uid://db5posyhbs5u" path="res://sprites/FREE DEMO + PENGUIN/Tiles and characters/layered snow.png" id="2_tyrcy"]
 [ext_resource type="Texture2D" uid="uid://dxe7agrn8pojp" path="res://sprites/FREE DEMO + PENGUIN/Tiles and characters/fences.png" id="3_7m44b"]
-[ext_resource type="Texture2D" uid="uid://ckeoiqy5k8y3e" path="res://sprites/tiny-town/tiny-town.png" id="4_mxd30"]
 [ext_resource type="Texture2D" uid="uid://cpnd6ea4trvaf" path="res://sprites/kenney_tiny-ski/Tilemap/tilemap_packed.png" id="5_b4f44"]
 [ext_resource type="Texture2D" uid="uid://bwpg4klb1unew" path="res://sprites/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="6_0ocsj"]
+[ext_resource type="Texture2D" uid="uid://fu5ljc21fbsc" path="res://sprites/SnowPack/PNG/WavingFlag.png" id="6_hcyti"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qixeb"]
 texture = ExtResource("1_hcyti")
@@ -128,8 +128,11 @@ texture = ExtResource("3_7m44b")
 1:2/0 = 0
 4:2/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tyrcy"]
+load_path = "res://.godot/imported/tiny-town.png-4ae861840c894f131a3078bc232c55d9.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p2mj8"]
-texture = ExtResource("4_mxd30")
+texture = SubResource("CompressedTexture2D_tyrcy")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -533,6 +536,14 @@ texture = ExtResource("6_0ocsj")
 10:10/0 = 0
 11:10/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7m44b"]
+texture = ExtResource("6_hcyti")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_qixeb")
 sources/1 = SubResource("TileSetAtlasSource_15amu")
@@ -540,3 +551,4 @@ sources/2 = SubResource("TileSetAtlasSource_2mg87")
 sources/3 = SubResource("TileSetAtlasSource_p2mj8")
 sources/5 = SubResource("TileSetAtlasSource_1xrcg")
 sources/6 = SubResource("TileSetAtlasSource_u20is")
+sources/7 = SubResource("TileSetAtlasSource_7m44b")

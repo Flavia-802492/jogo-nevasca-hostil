@@ -98,3 +98,7 @@ shape = SubResource("RectangleShape2D_123ki")
 sprite_frames = SubResource("SpriteFrames_s3on5")
 animation = &"esquerda-andando"
 frame_progress = 0.57993186
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1275445332]
+path_desired_distance = 4.0
+target_desired_distance = 4.0

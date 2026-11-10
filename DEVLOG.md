@@ -81,3 +81,23 @@
 **Como resolvi:** realizei testes e ajustei a velocidade dos inimigos, o alcance do ataque e o intervalo de nascimento da horda até encontrar um equilíbrio entre desafio e possibilidade de sobrevivência.
 
 **Observação:** a animação da onda de gelo foi criada com auxílio da ferramenta Manus AI, utilizando imagens PNG como quadros da animação.
+
+
+## feat: implementa navegação dos inimigos pelo mapa
+
+- Adiciona o nó `NavigationRegion2D` à cena principal.
+- Organiza os `TileMapLayer` `terreno` e `decoracao` dentro da região de navegação.
+- Adiciona colisões aos elementos sólidos da decoração, impedindo que os personagens atravessem esses objetos.
+- Refaz a decoração do mapa, reorganizando os elementos e mantendo espaçamento adequado para a movimentação dos personagens.
+- Configura o `NavigationPolygon` com a opção `Meshes and Static Colliders`.
+- Gera a região navegável considerando os colisores estáticos, deixando os obstáculos fora dos caminhos dos inimigos.
+- Adiciona `NavigationAgent2D` à cena do inimigo.
+- Atualiza o script `inimigo.gd` para utilizar o agente de navegação e perseguir o jogador contornando obstáculos.
+
+**Dificuldade:** fazer os inimigos reconhecerem os obstáculos e encontrarem caminhos alternativos até o jogador, sem precisar desenhar manualmente cada área livre do mapa.
+
+**Como resolvi:** configurei o `NavigationPolygon` para considerar os colisores estáticos e desenhei o contorno da região navegável abrangendo o mapa. O Godot gerou os polígonos automaticamente, excluindo as áreas bloqueadas.
+
+**Dificuldade:** organizar a decoração e garantir que os personagens tivessem espaço suficiente para se movimentar pelo cenário.
+
+**Como resolvi:** refiz a decoração, ajustei o espaçamento entre os elementos e adicionei colisões aos objetos sólidos.
