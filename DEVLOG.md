@@ -127,3 +127,17 @@
 **Como resolvi:** ajustei o raio da área de detecção da hurtbox para 9 e removi a conexão duplicada do sinal pelo editor, mantendo sua conexão por código no método `_ready()`.
 
 **Observação:** as ilustrações das telas de vitória e derrota foram desenvolvidas com auxílio da Manus AI, seguindo a identidade visual pixelizada do jogo. Foram realizados testes de vitória, derrota, reinicialização consecutiva das partidas, atualização da HUD e detecção de dano em todas as direções. Também foram observadas pequenas variações na espessura de algumas linhas dos caminhos do terreno, sem impacto perceptível na jogabilidade.
+
+
+## feat: atualiza documentação e adiciona capturas de tela do jogo
+
+- Atualiza o README.md com as instruções de como jogar, incluindo os controles de movimentação e ataque.
+- Documenta os assets utilizados no projeto, seus respectivos autores, origens e licenças de uso.
+- Adiciona capturas de tela do gameplay, do ataque de gelo e das telas de vitória e derrota.
+- Organiza as imagens na pasta `screenshots`, permitindo sua visualização diretamente pelo README.
+
+**Dificuldade:** organizar as informações sobre os assets utilizados, identificando suas origens e condições de uso.
+
+**Como resolvi:** reuni as informações dos pacotes de sprites utilizados durante o desenvolvimento, consultando suas licenças e registrando os créditos correspondentes.
+
+**Observação:** as capturas de tela foram realizadas durante a execução do próprio jogo, mostrando seus principais elementos e funcionalidades.
