@@ -141,3 +141,18 @@
 **Como resolvi:** reuni as informações dos pacotes de sprites utilizados durante o desenvolvimento, consultando suas licenças e registrando os créditos correspondentes.
 
 **Observação:** as capturas de tela foram realizadas durante a execução do próprio jogo, mostrando seus principais elementos e funcionalidades.
+
+
+## feat: exporta o jogo para Web e realiza testes no navegador
+
+- Configura a exportação do projeto para a plataforma Web no Godot.
+- Ajusta as configurações de renderização para utilizar o modo de compatibilidade na Web.
+- Gera os arquivos necessários para execução do jogo no navegador, incluindo HTML, JavaScript, PCK e WASM.
+- Organiza os arquivos exportados na pasta `docs`, utilizando `index.html` como página inicial.
+- Testa a versão exportada utilizando a extensão Live Server no Visual Studio Code.
+
+**Dificuldade:** executar o jogo exportado diretamente pelo arquivo HTML apresentava o erro "Failed to fetch".
+
+**Como resolvi:** utilizei a extensão Live Server para executar o projeto por meio de um servidor local, permitindo que o navegador carregasse corretamente os arquivos necessários.
+
+**Resultado:** o jogo foi executado e testado com sucesso no navegador, mantendo suas principais funcionalidades.
